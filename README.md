@@ -1,23 +1,29 @@
 # xinference-docker-hf
 
 This project allows easy deployment of any built-in LLM of
-[Xinference](https://github.com/xorbitsai/inference) using Docker.
+[Xinference](https://github.com/xorbitsai/inference) using Docker. Uses Docker
+and Docker compose, available [here](https://docs.docker.com/get-docker/).
 
-## Get started
+## Installation and usage
 
-1. Install docker and docker-compose (now also 'docker compose') on your
-machine.
+The pre-built image is available on Docker Hub under the name
+`biocypher/xinference-builtin` as a multi-arch image. You can pull it using
+`docker pull biocypher/xinference-builtin`. The image is built for amd64 and
+arm64 architectures. If you want to build the image yourself, you can use the
+Dockerfile in this repository (step 2).
 
-2. Install nvidia-docker libraries (find details about the Nvidia-Container
+1. Install nvidia-docker libraries (find details about the Nvidia-Container
 Toolkit [here](https://hub.docker.com/r/nvidia/cuda)).
 
-3. Run `docker-compose pull` to use a pre-build image or `docker-compose build`
+2. Run `docker compose pull` to use a pre-built image or `docker compose build`
 to build it locally.
 
-4. Run `docker-compose up -d`. This should start a container in the background
-that downloads and runs the vicuna-16k (13b) model.
+3. Run `docker compose up -d`. This should start a container in the background
+that downloads and runs the zephyr-7b model. To change the model, change the
+env_file parameter in the `docker-compose.yml` file, for instance to
+`llama-2-13b.env`.
 
-5. Optional: There are two example environment file examples that can be
+4. Optional: There are two example environment file examples that can be
 commented and un-commented in the docker-compose.yml. The llama-2-chat file
 shows you how to use models that require a huggingface access token (if the
 token is placed in the .env file).
