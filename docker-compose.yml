@@ -1,13 +1,13 @@
 services:
   xinference:
-    image: biocypher/xinference-builtin:0.0.0
-    container_name: xinference_builtin
+    image: andimajore/xinference_built_in:0.7.5
+    container_name: xinference_built_in
     build: .
     command: bash launch_script.sh
     restart: always
     env_file:
-      - zephyr-7b-beta.env
-      # - llama-2-13b.env
+#      - zephyr-7b-beta.env
+      - llama-2-13b.env
     ports:
       - "9997:9997"
     deploy:
@@ -15,5 +15,5 @@ services:
         reservations:
           devices:
             - driver: nvidia
-              count: 2
-              capabilities: [ gpu ]
+              count: 1
+              capabilities: [gpu]
