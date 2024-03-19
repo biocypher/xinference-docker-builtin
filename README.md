@@ -3,6 +3,9 @@
 This project allows easy deployment of any built-in LLM of
 [Xinference](https://github.com/xorbitsai/inference) using Docker. Uses Docker
 and Docker compose, available [here](https://docs.docker.com/get-docker/).
+Note that this setup only works on Linux machines with dedicated Nvidia
+graphics cards. For other solutions, check the Xinference docs; for instance,
+you can run the xinference library natively on Mac machines.
 
 ## Installation and usage
 
